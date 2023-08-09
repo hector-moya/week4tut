@@ -1,27 +1,52 @@
-# Week4tut
+# Week4Tut - Angular Project
+This project was generated with Angular CLI.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.8.
+# Description
+A simple Angular application with login functionality. The application allows users to log in using predefined credentials and navigate to an account page.
 
-## Development server
+# Setup
+1. Install Dependencies:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+    bash
+    Copy code
+    npm install
+    Run the Application:
 
-## Code scaffolding
+2. bash
+    Copy code
+    ng serve
+    Navigate to http://localhost:4200/ in your browser. The app will automatically reload if you change any of the source files.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Features
+1. Login Page: Allows users to input their email and password.
+2. Account Page: A simple page that users are redirected to upon successful login.
 
-## Build
+# Login Functionality
+The login functionality checks the user's input against a set of predefined credentials. If the credentials match, the user is redirected to the account page. Otherwise, an error message is displayed.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Dependencies
+- Angular
+- Bootstrap
 
-## Running unit tests
+# Commands Used
+1. Angular:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Create a new project: ng new week4tut
+- Generate a new component: ng generate component <component-name>
+- Serve the application: ng serve
 
-## Running end-to-end tests
+2. npm:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Install Bootstrap: npm install bootstrap --save
 
-## Further help
+3. Git:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Initialize a new repository: git init
+- Add files to staging: git add .
+- Commit changes: git commit -m "Your commit message"
+- Push to a remote repository: git push <remote-name> <branch-name>
+
+# Further Help
+To get more help on the Angular CLI, use ng help or check out the Angular CLI README.
+
+
