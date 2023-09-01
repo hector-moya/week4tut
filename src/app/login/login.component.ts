@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -11,24 +12,28 @@ export class LoginComponent {
   password: string = '';
   errorMessage: string | null = null;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private http: HttpClient) { }
 
   login() {
-    const users = [
-      { email: 'user1@example.com', password: 'password' },
-      { email: 'user2@example.com', password: 'password' },
-      { email: 'user3@example.com', password: 'password' },
-    ];
-    console.log(this.email + this.password);
-    const user = users.find(
-      (u) => u.email === this.email && u.password === this.password
-    );
+    // Define the payload
+    const payload = {
+      email: this.email,
+      password: this.password
+    };
 
-    if (user) {
-      this.router.navigate(['/account']);
-      this.errorMessage = null;
-    } else {
-      this.errorMessage = 'Invalid email or password';
-    }
+    // Send a POST request to your Express server
+    this.http.post<{ valid: boolean, user: any }>('http://localhost:3000/api/auth', payload).subscribe({
+      next: (response) => {
+        if (response.valid) {
+          // Store user details in session storage (excluding the password)
+          sessionStorage.setItem('currentUser', JSON.stringify(response.user));
+          // Navigate to the account page
+          this.router.navigate(['/account']);
+          this.errorMessage = null;
+        } else {
+          this.errorMessage = 'Invalid email or password';
+        }
+      }
+    });
   }
 }

@@ -1,0 +1,12 @@
+<form [formGroup]="profileForm" (ngSubmit)="saveChanges()">
+    <label for="username">Username:</label>
+    <input id="username" formControlName="username">
+
+    <label for="birthdate">Birthdate:</label>
+    <input id="birthdate" formControlName="birthdate" type="date">
+
+    <label for="age">Age:</label>
+    <input id="age" formControlName="age" type="number">
+
+    <button type="submit">Save Changes</button>
+</form>
